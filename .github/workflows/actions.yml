@@ -29,6 +29,13 @@ jobs:
   - name: Run tests
     run: build/check
 
+
+  - name: Create coverage directory
+    run: mkdir -p coverage
+
+  - name: Set permissions for coverage directory
+    run: chmod -R 777 coverage
+
   - name: Do lcov stuff
     run: lcov -c -d build/CMakeFiles/banking.dir/banking/ --include *.cpp --output-file ./coverage/lcov.info
 
